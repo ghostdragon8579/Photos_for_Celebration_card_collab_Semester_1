@@ -3,6 +3,8 @@ int appWidth, appHeight;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 PImage picBackground;
 Boolean nightmode=false;
+Boolean brightnesscontrol=false; //<- ->
+int brightnessNumber=255; //Range 1-255
 //
 void setup() {
   //fullScreen(); //displayWidth, displayHeight;
@@ -23,7 +25,7 @@ void setup() {
 void draw() {
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   //
-  //if ( [BRIGHTNESS, see keyPressed] ) tint (255, 128);
+  if (brightnesscontrol==true) tint (255, brightnessNumber);
   //if ( nightmode==true ) tint ( 64, 64, 40 ); //Gray Scale: 1/2 tint
   if (nightmode==true) {
     tint ( 64, 64, 40 );
@@ -44,7 +46,11 @@ void keyPressed() {
       nightmode = true;
     }
   }
-
+  //Brightness controlled with arrow keys
+  //
+  if ( [Special Key Binds] ) { //Brightness keybinds
+  brightnessControl = true;
+  }
   //
 } //End keyPressed
 //
