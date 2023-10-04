@@ -3,7 +3,7 @@ int appWidth, appHeight;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 PImage picBackground;
 Boolean nightmode=false;
-Boolean brightnesscontrol=false; //<- ->
+Boolean brightnessControl=false; //<- ->
 int brightnessNumber=255; //Range 1-255
 //
 void setup() {
@@ -22,17 +22,29 @@ void setup() {
   //
 } //End setup
 //
-void draw() {
+void draw() 
+{
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   //
-  if (brightnesscontrol==true) tint (255, brightnessNumber);
-  //if ( nightmode==true ) tint ( 64, 64, 40 ); //Gray Scale: 1/2 tint
-  if (nightmode==true) {
-    tint ( 64, 64, 40 );
-    println(nightmode);
+  if ( brightnessControl==true );
+  {
+    if ( brightnessNumber<1 ) {
+      brightnessNumber=1;
+    } else if ( brightnessNumber>255 ) {
+      brightnessNumber=255;
+    } else {
+      //Empty ELSE
+    }
+    tint (255, brightnessNumber);
+    println(brightnessNumber);
+  }
+  
+
+  //if ( nightmode==true ) tint ( 64, 64, 40 );
+  if ( nightmode==true ) {
+    //tint ( 64, 64, 40 );
+    //println(nightmode);
   } else {
-    noTint();
-    println(nightmode);
   }
   image( picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
 } //End draw
@@ -40,7 +52,7 @@ void draw() {
 void keyPressed() {
   //
   if ( key=='n' || key=='N' ) {
-    if ( nightmode==true ) { 
+    if ( nightmode==true ) {
       nightmode = false;
     } else {
       nightmode = true;
@@ -48,10 +60,13 @@ void keyPressed() {
   }
   //Brightness controlled with arrow keys
   //
-  if ( [Special Key Binds] ) { //Brightness keybinds
-  brightnessControl = true;
+  if (key==CODED && keyCode == UP || keyCode == DOWN) {
+    brightnessControl = true;
+    if (key==CODED && keyCode == UP) brightnessNumber++;
+    if (key==CODED && keyCode == DOWN) brightnessNumber--;
   }
   //
+  println(brightnessNumber);
 } //End keyPressed
 //
 void mousePressed() {
