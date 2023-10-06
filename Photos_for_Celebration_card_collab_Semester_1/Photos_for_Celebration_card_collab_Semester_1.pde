@@ -12,6 +12,7 @@ void setup() {
   appWidth = displayWidth;
   appHeight = displayHeight;
   //
+  //if () {} else if () {} else
   backgroundImageX = appWidth*0;
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
@@ -36,14 +37,13 @@ void draw()
       //Empty ELSE
     }
     tint (255, brightnessNumber);
-    println(brightnessNumber);
+    //println(brightnessNumber);
   }
-  
-
   //if ( nightmode==true ) tint ( 64, 64, 40 );
   if ( nightmode==true ) {
-    //tint ( 64, 64, 40 );
-    //println(nightmode);
+    tint ( 64, 64, 40 );
+    //NOTE MAKE A COLOR SLIDER.
+    println(nightmode);
   } else {
   }
   image( picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
