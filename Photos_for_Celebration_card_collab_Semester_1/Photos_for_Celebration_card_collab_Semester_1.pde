@@ -12,12 +12,15 @@ void setup() {
   appWidth = displayWidth;
   appHeight = displayHeight;
   //
-  //if () {} else if () {} else
   backgroundImageX = appWidth*0;
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
-  picBackground = loadImage("../Images used for the Celebration Card/Obi-wan-star-wars-jedi-23864621-800-600.jpg");
+  String up = "..";
+  String open = "/";
+  String imagesPath = up + open;
+  String landScapeImage = "Images used for the Celebration Card";
+  picBackground = loadImage(imagesPath + landScapeImage + open + "Obi-wan-star-wars-jedi-23864621-800-600.jpg");
   //
   //rect(xImage, yImage, widthImage, heightImage);
   //
