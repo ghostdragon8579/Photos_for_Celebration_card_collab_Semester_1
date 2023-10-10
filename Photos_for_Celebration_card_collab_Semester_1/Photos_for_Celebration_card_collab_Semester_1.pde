@@ -2,6 +2,7 @@
 int appWidth, appHeight;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 PImage picBackground;
+PImage picForeground;
 Boolean nightmode=false;
 Boolean brightnessControl=false; //<- ->
 int brightnessNumber=255; //Range 1-255
@@ -31,6 +32,7 @@ void setup() {
   String imagesPath = up + open;
   String landScapeImage = "Images used for the Celebration Card";
   picBackground = loadImage(imagesPath + landScapeImage + open + "Obi-wan-star-wars-jedi-23864621-800-600.jpg");
+  picForeground picBackground = loadImage(imagesPath + landScapeImage + open + "");
   //
   //rect(xImage, yImage, widthImage, heightImage);
   //
@@ -39,6 +41,7 @@ void setup() {
 void draw() 
 {
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  rect( ForegroundImageX, ForegroundImageY, ForegroundImageWidth, ForegroundImageHeight );
   //
   if ( brightnessControl==true );
   {
@@ -50,16 +53,17 @@ void draw()
       //Empty ELSE
     }
     tint (255, brightnessNumber);
-    //println(brightnessNumber);
+  //
   }
   //if ( nightmode==true ) tint ( 64, 64, 40 );
   if ( nightmode==true ) {
     tint ( 64, 64, 40 );
-    //NOTE MAKE A COLOR SLIDER.
-    println(nightmode);
+    //println(nightmode, brightnessNumber);
   } else {
   }
-  image( picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  image(picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
+  image(picBackground, );
+  image();
 } //End draw
 //
 void keyPressed() {
