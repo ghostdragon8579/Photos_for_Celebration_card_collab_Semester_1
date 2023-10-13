@@ -33,28 +33,28 @@ void setup() {
   //
   ForegroundImageX = appWidth*1/14;
   ForegroundImageY = appHeight*1/8;
-  ForegroundImageWidth = appWidth*1/7;
+  ForegroundImageWidth = appWidth*2/7;
   ForegroundImageHeight = appHeight*1/4;
   //
   backgroundImageX = appWidth*0;
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
+  //
   String up = "..";
   String open = "/";
   String imagesPath = up + open;
   String landScapeImage = "Images used for the Celebration Card";
-  picBackground = loadImage(imagesPath + landScapeImage + open + "Obi-wan-star-wars-jedi-23864621-800-600.jpg");
-  picForeground = loadImage(imagesPath + landScapeImage + open + "Obi-wan-star-wars-jedi-23864621-800-600.jpg");
-  picPortrait = loadImage(imagesPath + landScapeImage + open + "Obi-wan-star-wars-jedi-23864621-800-600.jpg");
+  String obiImage = "Obi-wan-star-wars-jedi-23864621-800-600.jpg";
+  picBackground = loadImage(imagesPath + landScapeImage + open + obiImage);
+  picForeground = loadImage(imagesPath + landScapeImage + open + obiImage);
+  picPortrait = loadImage(imagesPath + landScapeImage + open + obiImage);
   //
 } //End setup
 //
 void draw() 
 {
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
-  rect( ForegroundImageX, ForegroundImageY, ForegroundImageWidth, ForegroundImageHeight );
-  rect( picPortraitX, picPortraitY, picPortraitWidth, picPortraitHeight );
   //
   if ( brightnessControl==true );
   {
@@ -77,6 +77,8 @@ void draw()
   image(picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   image(picForeground, ForegroundImageX, ForegroundImageY, ForegroundImageWidth, ForegroundImageHeight );
   image(picPortrait, picPortraitX, picPortraitY, picPortraitWidth, picPortraitHeight);
+  //rect( ForegroundImageX, ForegroundImageY, ForegroundImageWidth, ForegroundImageHeight );
+  //rect( picPortraitX, picPortraitY, picPortraitWidth, picPortraitHeight );
 } //End draw
 //
 void keyPressed() {
