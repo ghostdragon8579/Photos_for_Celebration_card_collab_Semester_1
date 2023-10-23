@@ -1,8 +1,8 @@
 //Global Variables
 int appWidth, appHeight;
-float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
-float ForegroundImageX, ForegroundImageY, ForegroundImageWidth, ForegroundImageHeight;
-float picPortraitX, picPortraitY, picPortraitWidth, picPortraitHeight;
+float backgroundImageXRect, backgroundImageYRect, backgroundImageWidthRect, backgroundImageHeightRect;
+float ForegroundImageXRect, ForegroundImageYRect, ForegroundImageWidthRect, ForegroundImageHeightRect;
+float picPortraitXRect, picPortraitYRect, picPortraitWidthRect, picPortraitHeightRect;
 PImage picBackground;
 PImage picForeground;
 PImage picPortrait;
@@ -26,35 +26,57 @@ void setup() {
     nightmode=false;
   }
   //
-  picPortraitX = ForegroundImageX;
-  picPortraitY = appHeight*5/8;
-  picPortraitWidth = ForegroundImageWidth;
-  picPortraitHeight = ForegroundImageHeight;
+  backgroundImageXRect = appWidth*0;
+  backgroundImageYRect = appHeight*0;
+  backgroundImageWidthRect = appWidth-1;
+  backgroundImageHeightRect = appHeight-1;
   //
-  ForegroundImageX = appWidth*1/14;
-  ForegroundImageY = appHeight*1/8;
-  ForegroundImageWidth = appWidth*2/7;
-  ForegroundImageHeight = appHeight*1/4;
   //
-  backgroundImageX = appWidth*0;
-  backgroundImageY = appHeight*0;
-  backgroundImageWidth = appWidth-1;
-  backgroundImageHeight = appHeight-1;
+  ForegroundImageXRect = appWidth*1/14;
+  ForegroundImageYRect = appHeight*1/8;
+  ForegroundImageWidthRect = appWidth*2.25/7;
+  ForegroundImageHeightRect = appHeight*1/4;
+  //
+  //ForegroundImageWidth = 800;
+  //ForegroundImageHeight = 600;
+  //
+  picPortraitXRect = ForegroundImageXRect;
+  picPortraitYRect = appHeight*4/8;
+  picPortraitWidthRect = ForegroundImageWidthRect;
+  picPortraitHeightRect = ForegroundImageHeightRect;
+  //
+  //picPortraitWidth = 800;
+  //picPortraitHeight = 600;
+  //
+  float aspectRatio = 0.0;
+  float rectDimaesionMemory = 0.0;
+  if( ForegroundImageWidthRect >= picPortraitHeightRect ) {
+    aspectRatio = ForegroundImageHeightRect / ForegroundImageWidthRect;
+  println("Obi is Landscape");
+  } else {
+  }
+  if( picPortraitWidthRect > ForegroundImageHeightRect ) {
+  println("Darth is portrait");
+  } else {
+  }
   //
   String up = "..";
   String open = "/";
   String imagesPath = up + open;
   String landScapeImage = "Images used for the Celebration Card";
   String obiImage = "Obi-wan-star-wars-jedi-23864621-800-600.jpg";
+  String darthImage = "10-star-wars-darth-vader-portrait-wallpaper-1-325x485.jpg";
   picBackground = loadImage(imagesPath + landScapeImage + open + obiImage);
   picForeground = loadImage(imagesPath + landScapeImage + open + obiImage);
-  picPortrait = loadImage(imagesPath + landScapeImage + open + obiImage);
+  picPortrait = loadImage(imagesPath + landScapeImage + open + darthImage);
   //
 } //End setup
 //
 void draw() 
 {
-  rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  rect( backgroundImageXRect, backgroundImageYRect, backgroundImageWidthRect, backgroundImageHeightRect );
+  rect( ForegroundImageXRect, ForegroundImageYRect, ForegroundImageWidthRect, ForegroundImageHeightRect );
+  rect( picPortraitXRect, picPortraitYRect, picPortraitWidthRect, picPortraitHeightRect );
   //
   if ( brightnessControl==true );
   {
@@ -74,11 +96,9 @@ void draw()
     //println(nightmode, brightnessNumber);
   } else {
   }
-  image(picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
-  image(picForeground, ForegroundImageX, ForegroundImageY, ForegroundImageWidth, ForegroundImageHeight );
-  image(picPortrait, picPortraitX, picPortraitY, picPortraitWidth, picPortraitHeight);
-  //rect( ForegroundImageX, ForegroundImageY, ForegroundImageWidth, ForegroundImageHeight );
-  //rect( picPortraitX, picPortraitY, picPortraitWidth, picPortraitHeight );
+  image(picBackground, backgroundImageXRect, backgroundImageYRect, backgroundImageWidthRect, backgroundImageHeightRect);
+  image(picForeground, ForegroundImageXRect, ForegroundImageYRect, ForegroundImageWidthRect, ForegroundImageHeightRect);
+  image(picPortrait, picPortraitXRect, picPortraitYRect, picPortraitWidthRect, picPortraitHeightRect);
 } //End draw
 //
 void keyPressed() {
@@ -102,6 +122,7 @@ void keyPressed() {
 } //End keyPressed
 //
 void mousePressed() {
+  
 } //End mousePressed
 //
 // End MAIN Program
