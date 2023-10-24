@@ -1,7 +1,8 @@
 //Global Variables
 int appWidth, appHeight;
+float picPortraitWidth, picPortraitHeight;
 float backgroundImageXRect, backgroundImageYRect, backgroundImageWidthRect, backgroundImageHeightRect;
-float ForegroundImageXRect, ForegroundImageYRect, ForegroundImageWidthRect, ForegroundImageHeightRect;
+float ForegroundImageXRect, ForegroundImageYRect, ForegroundImageWidthRect, ForegroundImageHeightRect, ForegroundImageWidth, ForegroundImageHeight;
 float picPortraitXRect, picPortraitYRect, picPortraitWidthRect, picPortraitHeightRect;
 PImage picBackground;
 PImage picForeground;
@@ -37,8 +38,8 @@ void setup() {
   ForegroundImageWidthRect = appWidth*2.25/7;
   ForegroundImageHeightRect = appHeight*1/4;
   //
-  //ForegroundImageWidth = 800;
-  //ForegroundImageHeight = 600;
+  ForegroundImageWidth = 800;
+  ForegroundImageHeight = 600;
   //
   picPortraitXRect = ForegroundImageXRect;
   picPortraitYRect = appHeight*4/8;
@@ -49,13 +50,20 @@ void setup() {
   //picPortraitHeight = 600;
   //
   float aspectRatio = 0.0;
-  float rectDimaesionMemory = 0.0;
-  if( ForegroundImageWidthRect >= picPortraitHeightRect ) {
+  float rectDimesionMemory = 0.0;
+  if( ForegroundImageWidth >= picPortraitHeight ) {
     aspectRatio = ForegroundImageHeightRect / ForegroundImageWidthRect;
+    ForegroundImageWidth = ForegroundImageWidthRect;
+    ForegroundImageHeight = ForegroundImageHeightRect;
+    //
   println("Obi is Landscape");
   } else {
   }
   if( picPortraitWidthRect > ForegroundImageHeightRect ) {
+    aspectRatio = picPortraitWidthRect / picPortraitHeightRect;
+    picPortraitHeight = picPortraitHeightRect;
+    picPortraitWidth = aspectRatio * picPortraitWidthRect;
+    //
   println("Darth is portrait");
   } else {
   }
